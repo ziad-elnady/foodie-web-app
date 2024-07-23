@@ -1,6 +1,6 @@
 import Header from '@/components/header';
-import { Container } from '@mui/material';
 import Head from 'next/head';
+import CategoriesSection from './_partials/categories/component';
 import FeaturedProductsSection from './_partials/featured-products';
 import HeroSection from './_partials/hero';
 
@@ -16,9 +16,8 @@ export default function Home() {
 			<Header />
 			<main>
 				<HeroSection />
-				<Container>
-					<FeaturedProductsSection />
-				</Container>
+				<FeaturedProductsSection />
+				<CategoriesSection />
 			</main>
 		</>
 	);
