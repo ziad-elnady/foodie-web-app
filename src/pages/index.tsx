@@ -1,6 +1,8 @@
 import Header from '@/components/header';
-import { Typography } from '@mui/material';
+import { Container } from '@mui/material';
 import Head from 'next/head';
+import FeaturedProductsSection from './_partials/featured-products';
+import HeroSection from './_partials/hero';
 
 export default function Home() {
 	return (
@@ -13,10 +15,10 @@ export default function Home() {
 			</Head>
 			<Header />
 			<main>
-				<Typography>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, soluta consequatur! Temporibus dicta expedita ipsa vero alias voluptate reiciendis obcaecati eum libero nulla vel
-					placeat quae praesentium maiores, voluptates consequatur.
-				</Typography>
+				<HeroSection />
+				<Container>
+					<FeaturedProductsSection />
+				</Container>
 			</main>
 		</>
 	);

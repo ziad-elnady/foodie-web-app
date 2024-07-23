@@ -7,7 +7,7 @@ type Props = {};
 
 const Logo = (props: Props) => {
 	return (
-		<Link component={NextLink} href={Routes.ROOT}>
+		<Link component={NextLink} href={Routes.ROOT} color={'#FFFFFF'}>
 			<LogoSVG />
 		</Link>
 	);

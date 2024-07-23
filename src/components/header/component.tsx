@@ -5,7 +5,7 @@ import Nav from './partials/nav';
 
 const Header = () => {
 	return (
-		<AppBar position="static" color="transparent">
+		<AppBar color="transparent" elevation={0}>
 			<Toolbar>
 				<Stack width={1} direction={'row'} justifyContent={'space-between'} alignItems={'center'}>
 					<Logo />
