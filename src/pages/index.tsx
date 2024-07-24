@@ -1,4 +1,5 @@
 import Header from '@/components/header';
+import { Box } from '@mui/material';
 import Head from 'next/head';
 import CategoriesSection from './_partials/categories/component';
 import FeaturedProductsSection from './_partials/featured-products';
@@ -14,11 +15,11 @@ export default function Home() {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<Header />
-			<main>
+			<Box component={'main'}>
 				<HeroSection />
 				<FeaturedProductsSection />
 				<CategoriesSection />
-			</main>
+			</Box>
 		</>
 	);
 }

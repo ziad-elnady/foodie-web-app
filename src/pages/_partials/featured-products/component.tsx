@@ -5,8 +5,8 @@ type Props = {};
 
 const FeaturedProductsSection = (props: Props) => {
 	return (
-		<Container>
-			<Stack py={8} spacing={4} useFlexGap>
+		<Container sx={{ my: 8 }}>
+			<Stack spacing={4} useFlexGap>
 				<Stack direction={'row'} justifyContent={'space-between'} alignItems={'center'}>
 					<Typography variant="h4" fontWeight={700}>
 						Featured Products
@@ -15,7 +15,7 @@ const FeaturedProductsSection = (props: Props) => {
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla fringilla nunc in molestie feugiat. Nunc auctor consectetur elit, quis pulvina.
 					</Typography>
 				</Stack>
-				<Grid container rowSpacing={6} columnSpacing={2}>
+				<Grid container rowSpacing={4} columnSpacing={2}>
 					{Array(6)
 						.fill('')
 						.map((item, index) => (
