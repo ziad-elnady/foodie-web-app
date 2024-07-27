@@ -7,7 +7,7 @@ const FeaturedProductsSection = (props: Props) => {
 	return (
 		<Container sx={{ my: 8 }}>
 			<Stack spacing={4} useFlexGap>
-				<Stack direction={'row'} justifyContent={'space-between'} alignItems={'center'}>
+				<Stack alignItems={'start'} spacing={2}>
 					<Typography variant="h4" fontWeight={700}>
 						Featured Products
 					</Typography>
