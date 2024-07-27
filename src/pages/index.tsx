@@ -1,11 +1,12 @@
 import Header from '@/components/header';
 import { Box } from '@mui/material';
 import Head from 'next/head';
+import OngoingSection from '../components/latest-ongoings/components';
+import UniqueProductsSection from '../components/unique-products/component';
 import CategoriesSection from './_partials/categories/component';
 import FeaturedProductsSection from './_partials/featured-products';
 import HeroSection from './_partials/hero';
 import PopularProducts from './_partials/popular-products';
-import UniqueProductsSection from './_partials/unique-products/component';
 
 export default function Home() {
 	return (
@@ -23,6 +24,7 @@ export default function Home() {
 				<CategoriesSection />
 				<PopularProducts />
 				<UniqueProductsSection />
+				<OngoingSection />
 			</Box>
 		</>
 	);
