@@ -1,7 +1,8 @@
+import FrequentlyAskedQuestionsSection from '@/components/frequently-questions/compontent';
 import Header from '@/components/header';
 import { Box } from '@mui/material';
 import Head from 'next/head';
-import OngoingSection from '../components/latest-ongoings/components';
+import OngoingSection from '../components/latest-ongoings/component';
 import UniqueProductsSection from '../components/unique-products/component';
 import CategoriesSection from './_partials/categories/component';
 import FeaturedProductsSection from './_partials/featured-products';
@@ -25,6 +26,7 @@ export default function Home() {
 				<PopularProducts />
 				<UniqueProductsSection />
 				<OngoingSection />
+				<FrequentlyAskedQuestionsSection />
 			</Box>
 		</>
 	);
