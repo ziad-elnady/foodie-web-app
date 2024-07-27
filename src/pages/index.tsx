@@ -4,6 +4,7 @@ import Head from 'next/head';
 import CategoriesSection from './_partials/categories/component';
 import FeaturedProductsSection from './_partials/featured-products';
 import HeroSection from './_partials/hero';
+import PopularProducts from './_partials/popular-products';
 
 export default function Home() {
 	return (
@@ -19,6 +20,7 @@ export default function Home() {
 				<HeroSection />
 				<FeaturedProductsSection />
 				<CategoriesSection />
+				<PopularProducts />
 			</Box>
 		</>
 	);
