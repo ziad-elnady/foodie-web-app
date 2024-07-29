@@ -9,7 +9,7 @@ const SponsersSection = (props: Props) => {
                 <Stack direction={'row'} justifyContent={'space-around'}>
                     {
                         Array(7).fill('').map((item, index) => (
-                            <Typography variant="h5" fontWeight={700} color="#3D3D3D">Sponser</Typography>
+                            <Typography key={index} variant="h5" fontWeight={700} color="#3D3D3D">Sponser</Typography>
                         ))
                     }
                 </Stack>

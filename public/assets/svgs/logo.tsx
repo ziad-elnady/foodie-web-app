@@ -1,6 +1,16 @@
-type Props = {};
+type Props = {
+	size: 'small' | 'medium' | 'large'
+};
 
-const LogoSVG = (props: Props) => {
+const sizeMap = {
+	small: { width: 78 * 0.75, height: 30 * 0.75 },
+	medium: { width: 78, height: 30 },
+	large: { width: 78 * 1.5, height: 30 * 1.5 },
+};
+
+const LogoSVG = ({ size }: Props) => {
+	// const { width, height } = sizeMap[size]
+
 	return (
 		<svg id="logo" width={78 * 0.75} height={30 * 0.75} viewBox="0 0 78 30" fill="none" xmlns="http://www.w3.org/2000/svg">
 			<path

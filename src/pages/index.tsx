@@ -1,6 +1,6 @@
+import Footer from '@/components/footer';
 import FrequentlyAskedQuestionsSection from '@/components/frequently-questions/compontent';
 import Header from '@/components/header';
-import SponsersSection from '@/components/sponsers/component';
 import { Box } from '@mui/material';
 import Head from 'next/head';
 import OngoingSection from '../components/latest-ongoings/component';
@@ -28,7 +28,7 @@ export default function Home() {
 				<UniqueProductsSection />
 				<OngoingSection />
 				<FrequentlyAskedQuestionsSection />
-				<SponsersSection />
+				<Footer />
 			</Box>
 		</>
 	);
