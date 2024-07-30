@@ -6,7 +6,7 @@ const Nav = () => {
 	return (
 		<Stack direction={'row'} alignItems={'center'} spacing={4} useFlexGap>
 			{links.map((link) => (
-				<Link key={link.href} component={NextLink} href={link.href} color={'#FFFFFF'} underline='none' >
+				<Link key={link.href} component={NextLink} href={link.href} color={'#FFFFFF'} underline="none">
 					<Typography variant="body2">{link.label}</Typography>
 				</Link>
 			))}

@@ -1,6 +1,6 @@
 export enum Routes {
 	ROOT = '/',
-	CATEGORIES = '/categories',
+	PRODUCTS = '/products',
 	CONTACT_US = '/contact-us',
 	BLOG = '/blog',
 	CART = '/cart',

@@ -1,10 +1,11 @@
 import { Routes } from '@/enums';
+import { LogoSize } from '@/enums/sizes';
 import { Link } from '@mui/material';
 import LogoSVG from '@public/assets/svgs';
 import NextLink from 'next/link';
 
 type Props = {
-	size: 'small' | 'medium' | 'large'
+	size: LogoSize;
 };
 
 const Logo = (props: Props) => {
