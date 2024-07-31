@@ -1,3 +1,4 @@
+import Header from '@/components/header';
 import '@/styles/globals.css';
 import { themeOptions } from '@/theme';
 import { createTheme, ThemeProvider } from '@mui/material';
@@ -8,6 +9,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
 	return (
 		<ThemeProvider theme={theme}>
+			<Header />
 			<Component {...pageProps} />
 		</ThemeProvider>
 	);

@@ -1,5 +1,5 @@
+import FoodCard from '@/components/food-card';
 import { Container, Grid, Stack, Typography } from '@mui/material';
-import FoodCard from './partials/food-card';
 
 type Props = {};
 

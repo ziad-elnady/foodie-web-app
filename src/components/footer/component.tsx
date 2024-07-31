@@ -29,7 +29,7 @@ const FooterSection = (props: Props) => {
 						<Typography variant="h4" color={'#FFFFFF'} width={'32ch'} textAlign={'center'}>
 							Subscribe To Your Newsletter to Stay Updated About Discounts
 						</Typography>
-						<SearchInput placeholder="person@email.com" Icon={ChevronRight} onSubmit={handleNewsletter} />
+						<SearchInput placeholder="person@email.com" transperant={false} Icon={ChevronRight} onSubmit={handleNewsletter} />
 						<BottomNav />
 					</Stack>
 				</Container>

@@ -1,6 +1,5 @@
 import Footer from '@/components/footer';
 import FrequentlyAskedQuestionsSection from '@/components/frequently-questions/compontent';
-import Header from '@/components/header';
 import { Box } from '@mui/material';
 import Head from 'next/head';
 import OngoingSection from '../components/latest-ongoings/component';
@@ -19,7 +18,6 @@ export default function Home() {
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<Header />
 			<Box component={'main'}>
 				<HeroSection />
 				<FeaturedProductsSection />

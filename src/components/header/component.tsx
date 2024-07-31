@@ -1,6 +1,7 @@
 import { LogoSize } from '@/enums/sizes';
 import { useScroll } from '@/hooks';
 import { AppBar, Stack, Toolbar } from '@mui/material';
+import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import Actions from './partials/actions';
 import Logo from './partials/logo';
@@ -11,6 +12,15 @@ const Header = () => {
 
 	const scrollY = useScroll();
 
+	const pathname = usePathname();
+
+	const isHome = pathname === '/';
+	const position = isHome ? undefined : 'sticky';
+	const getForegroundColor = () => {
+		if (isHome && scrolled) return '#000000';
+		return '#FFFFFF';
+	};
+
 	useEffect(() => {
 		if (typeof window === 'undefined') return;
 
@@ -18,7 +28,11 @@ const Header = () => {
 	}, [scrollY]);
 
 	return (
-		<AppBar color={'transparent'} elevation={0} sx={{ bgcolor: scrolled ? '#00000080' : undefined, backdropFilter: scrolled ? 'blur(25px)' : undefined }}>
+		<AppBar
+			color={'transparent'}
+			position={position}
+			elevation={0}
+			sx={{ color: getForegroundColor, bgcolor: scrolled ? '#00000080' : undefined, backdropFilter: scrolled ? 'blur(25px)' : undefined }}>
 			<Toolbar>
 				<Stack width={1} direction={'row'} justifyContent={'space-between'} alignItems={'center'}>
 					<Logo size={LogoSize.SMALL} />
