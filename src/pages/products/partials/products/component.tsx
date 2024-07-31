@@ -15,11 +15,11 @@ const ProductsGridSection = (props: Props) => {
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 				</Typography>
 			</Stack>
-			<Grid container rowGap={2} columnGap={3}>
+			<Grid container spacing={4}>
 				{Array(24)
 					.fill('')
 					.map((item, index) => (
-						<Grid item xs={6} md={3} key={index}>
+						<Grid item xs={6} md={4} key={index}>
 							<FoodCard />
 						</Grid>
 					))}

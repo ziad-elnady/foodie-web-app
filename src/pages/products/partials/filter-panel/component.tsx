@@ -16,7 +16,7 @@ const FilterPanel = (props: Props) => {
 			<Stack mt={2}>
 				<FormGroup>
 					{price_ranges.map((range, index) => (
-						<FormControlLabel key={range.id} control={<Checkbox defaultChecked />} label={`$${range.from} - ${range.to}`} sx={{ '& .MuiSvgIcon-root': { fontSize: 22 } }} />
+						<FormControlLabel key={range.id} control={<Checkbox color="default" defaultChecked />} label={`$${range.from} - ${range.to}`} sx={{ '& .MuiSvgIcon-root': { fontSize: 22 } }} />
 					))}
 				</FormGroup>
 			</Stack>

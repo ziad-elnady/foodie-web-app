@@ -16,9 +16,13 @@ const Header = () => {
 
 	const isHome = pathname === '/';
 	const position = isHome ? undefined : 'sticky';
-	const getForegroundColor = () => {
-		if (isHome && scrolled) return '#000000';
-		return '#FFFFFF';
+
+	const getBackgroundStyles = () => {
+		if (isHome) {
+			if (scrolled) return { bgcolor: '#00000080', backdropFilter: 'blur(25px)' };
+		} else {
+			return { bgcolor: '#FFFFFF70', '*': { color: '#000000' }, backdropFilter: 'blur(25px)' };
+		}
 	};
 
 	useEffect(() => {
@@ -28,11 +32,7 @@ const Header = () => {
 	}, [scrollY]);
 
 	return (
-		<AppBar
-			color={'transparent'}
-			position={position}
-			elevation={0}
-			sx={{ color: getForegroundColor, bgcolor: scrolled ? '#00000080' : undefined, backdropFilter: scrolled ? 'blur(25px)' : undefined }}>
+		<AppBar color={'transparent'} position={position} elevation={0} sx={{ ...getBackgroundStyles() }}>
 			<Toolbar>
 				<Stack width={1} direction={'row'} justifyContent={'space-between'} alignItems={'center'}>
 					<Logo size={LogoSize.SMALL} />
