@@ -1,12 +1,9 @@
 import { Box, Checkbox, FormControlLabel, FormGroup, Stack, Typography } from '@mui/material';
-import { useState } from 'react';
 import { price_ranges } from './static';
 
 type Props = {};
 
 const FilterPanel = (props: Props) => {
-	const [currentFilter, setCurrentFilter] = useState<number>(0);
-
 	return (
 		<Stack py={5} px={3} border={1} borderColor={'#E2E2E2'}>
 			<Stack direction={'row'} spacing={2} useFlexGap alignItems={'center'}>
@@ -16,7 +13,12 @@ const FilterPanel = (props: Props) => {
 			<Stack mt={2}>
 				<FormGroup>
 					{price_ranges.map((range, index) => (
-						<FormControlLabel key={range.id} control={<Checkbox color="default" defaultChecked />} label={`$${range.from} - ${range.to}`} sx={{ '& .MuiSvgIcon-root': { fontSize: 22 } }} />
+						<FormControlLabel
+							key={range.id}
+							control={<Checkbox color="default" defaultChecked />}
+							label={`$${range.from} - ${range.to}`}
+							sx={{ '.MuiSvgIcon-root': { fontSize: 22 }, '& .MuiFormControlLabel-root': { span: { fontSize: 12 } } }}
+						/>
 					))}
 				</FormGroup>
 			</Stack>

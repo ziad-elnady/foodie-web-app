@@ -1,6 +1,6 @@
 import FoodCard from '@/components/food-card';
 import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
-import { Button, Grid, LinearProgress, Stack, Typography } from '@mui/material';
+import { Box, Button, Grid, LinearProgress, Stack, Typography } from '@mui/material';
 
 type Props = {};
 
@@ -15,20 +15,22 @@ const ProductsGridSection = (props: Props) => {
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 				</Typography>
 			</Stack>
-			<Grid container spacing={4}>
-				{Array(24)
-					.fill('')
-					.map((item, index) => (
-						<Grid item xs={6} md={4} key={index}>
-							<FoodCard />
-						</Grid>
-					))}
-			</Grid>
-			<Stack width={'60%'} color={'#000000'} spacing={3} alignItems={'center'}>
+			<Box>
+				<Grid container spacing={4}>
+					{Array(24)
+						.fill('')
+						.map((item, index) => (
+							<Grid item xs={6} md={4} key={index}>
+								<FoodCard />
+							</Grid>
+						))}
+				</Grid>
+			</Box>
+			<Stack width={'60%'} spacing={3} alignItems={'center'}>
 				<Typography variant="body2" color={'#414141'}>
 					Showing 1–12 of 24 item(s)
 				</Typography>
-				<LinearProgress variant="determinate" value={60} />
+				<LinearProgress variant="determinate" value={60} sx={{ width: 1, height: '3px' }} color="inherit" />
 				<Button
 					variant="contained"
 					disableElevation

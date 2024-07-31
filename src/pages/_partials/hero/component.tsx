@@ -28,7 +28,9 @@ const HeroSection = (props: Props) => {
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla fringilla nunc in molestie feugiat. Nunc auctor consectetur elit, quis pulvina. Lorem ipsum dolor sit amet,
 					consectetur adipiscing elit. Nulla fringilla nunc in molestie feugiat
 				</Typography>
-				<SearchInput transperant={false} placeholder="Search An Item" Icon={Search} onSubmit={handleSearch} />
+				<Box width={1} maxWidth={'40ch'}>
+					<SearchInput transperant={false} placeholder="Search An Item" Icon={Search} onSubmit={handleSearch} />
+				</Box>
 			</Stack>
 		</Box>
 	);

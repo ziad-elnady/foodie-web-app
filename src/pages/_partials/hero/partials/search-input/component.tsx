@@ -16,7 +16,6 @@ const SearchInput = ({ placeholder, transperant = false, Icon, onSubmit }: Props
 				direction={'row'}
 				alignItems={'center'}
 				width={1}
-				maxWidth={'40ch'}
 				mx={'auto'}
 				p={1}
 				borderRadius={999}

@@ -1,7 +1,7 @@
 import { LogoSize } from '@/enums/sizes';
 import SearchInput from '@/pages/_partials/hero/partials/search-input';
 import { ChevronRight } from '@mui/icons-material';
-import { Container, Divider, Stack, Typography } from '@mui/material';
+import { Box, Container, Divider, Stack, Typography } from '@mui/material';
 import { type FormEvent } from 'react';
 import Logo from '../header/partials/logo';
 import SponsersSection from '../sponsers';
@@ -29,7 +29,9 @@ const FooterSection = (props: Props) => {
 						<Typography variant="h4" color={'#FFFFFF'} width={'32ch'} textAlign={'center'}>
 							Subscribe To Your Newsletter to Stay Updated About Discounts
 						</Typography>
-						<SearchInput placeholder="person@email.com" transperant={false} Icon={ChevronRight} onSubmit={handleNewsletter} />
+						<Box width={1} maxWidth={'40ch'}>
+							<SearchInput placeholder="person@email.com" transperant={false} Icon={ChevronRight} onSubmit={handleNewsletter} />
+						</Box>
 						<BottomNav />
 					</Stack>
 				</Container>

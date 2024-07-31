@@ -1,15 +1,23 @@
 import Footer from '@/components/footer';
+import { useResponsive } from '@/hooks';
 import { Search } from '@mui/icons-material';
-import { Container, Stack, Typography } from '@mui/material';
-import { type FormEvent } from 'react';
+import { Box, Container, Stack, Typography } from '@mui/material';
+import dynamic from 'next/dynamic';
+import { useState, type FormEvent } from 'react';
 import SearchInput from '../_partials/hero/partials/search-input';
-import CategoriesPanel from './partials/categories-panel';
-import FilterPanel from './partials/filter-panel';
+import FiltersSection from './partials/filters';
 import ProductsGridSection from './partials/products/component';
 
 type Props = {};
 
+const FiltersDrawerSection = dynamic(() => import('./partials/filters-drawer'));
+const FiltersDrawerButton = dynamic(() => import('./partials/filters-drawer-button'));
+
 const ProductsPage = (props: Props) => {
+	const showFiltersSection = useResponsive('md');
+
+	const [showDrawer, setShowDrawer] = useState<boolean>(false);
+
 	const handleNewsletter = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
@@ -20,24 +28,31 @@ const ProductsPage = (props: Props) => {
 	};
 
 	return (
-		<Stack>
-			<Container>
-				<Stack direction={'row'} mt={4} spacing={4} useFlexGap>
-					<Stack width={'40%'} spacing={2}>
-						<CategoriesPanel />
-						<FilterPanel />
+		<>
+			<Stack>
+				<Container>
+					<Stack direction={'row'} mt={4} spacing={4} useFlexGap>
+						{showFiltersSection && (
+							<Box width={'40%'}>
+								<FiltersSection />
+							</Box>
+						)}
+						<Stack spacing={4} useFlexGap alignItems={'flex-start'} width={1}>
+							<Typography variant="h4" fontWeight={600}>
+								Our Collection Of Products
+							</Typography>
+							<Stack direction={'row'} width={1} spacing={2} useFlexGap>
+								{!showFiltersSection && <FiltersDrawerButton onClick={setShowDrawer} />}
+								<SearchInput onSubmit={handleNewsletter} transperant={true} placeholder={'Search An Item'} Icon={Search} />
+							</Stack>
+							<ProductsGridSection />
+						</Stack>
 					</Stack>
-					<Stack spacing={4} useFlexGap alignItems={'flex-start'} width={1}>
-						<Typography variant="h4" fontWeight={600}>
-							Our Collection Of Products
-						</Typography>
-						<SearchInput onSubmit={handleNewsletter} transperant={true} placeholder={'Search An Item'} Icon={Search} />
-						<ProductsGridSection />
-					</Stack>
-				</Stack>
-			</Container>
-			<Footer />
-		</Stack>
+				</Container>
+				<Footer />
+			</Stack>
+			{showDrawer && !showFiltersSection && <FiltersDrawerSection onClose={setShowDrawer} />}
+		</>
 	);
 };
 
