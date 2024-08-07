@@ -1,8 +1,10 @@
 import Footer from '@/components/footer';
 import { Container, Stack } from '@mui/material';
 import BreadcrumbPath from './_partials/breadcrumb';
+import ProductDescriptionTab from './_partials/description/component';
 import ProductDetailsSection from './_partials/details-section/component';
 import ProductImagesSection from './_partials/images-section/component';
+import SimilarProductsSection from './_partials/similar-products/component';
 
 type Props = {};
 
@@ -16,10 +18,11 @@ const ProductDetailPage = (props: Props) => {
 						<ProductImagesSection />
 						<ProductDetailsSection />
 					</Stack>
-					<Stack>Descripiton | Reviews</Stack>
-					<Stack>Similar products</Stack>
 				</Stack>
 			</Container>
+			{/* //TODO: ASK SEIF ABOUT THE TAB LOGIC AND ANIMATION */}
+			<ProductDescriptionTab />
+			<SimilarProductsSection />
 			<Footer />
 		</Stack>
 	);
