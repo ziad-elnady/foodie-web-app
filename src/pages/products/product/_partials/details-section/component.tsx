@@ -1,8 +1,7 @@
-import AddRoundedIcon from '@mui/icons-material/AddRounded';
+import Counter from '@/components/counter';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined';
-import RemoveRoundedIcon from '@mui/icons-material/RemoveRounded';
 import ShoppingCartCheckoutRoundedIcon from '@mui/icons-material/ShoppingCartCheckoutRounded';
 import StarRoundedIcon from '@mui/icons-material/StarRounded';
 import { Avatar, Box, Button, Divider, IconButton, List, ListItem, ListItemAvatar, ListItemText, Rating, Stack, Typography } from '@mui/material';
@@ -73,16 +72,8 @@ const ProductDetailsSection = (props: Props) => {
 			</Stack>
 			<Stack my={1} width={1} spacing={2} useFlexGap>
 				<Stack direction={'row'} spacing={2} height={'49px'}>
-					<Box border={1} borderColor="#D7D7D7" borderRadius={999} width={'30%'} alignContent={'center'}>
-						<Stack direction={'row'} alignItems={'center'} spacing={1.5} useFlexGap>
-							<IconButton size="large">
-								<RemoveRoundedIcon fontSize="small" />
-							</IconButton>
-							<Typography variant="body1">2</Typography>
-							<IconButton size="large">
-								<AddRoundedIcon fontSize="small" />
-							</IconButton>
-						</Stack>
+					<Box width={0.35}>
+						<Counter />
 					</Box>
 					<Button variant="contained" disableElevation sx={{ borderRadius: 999, width: '100%', bgcolor: '#000000', textTransform: 'none' }}>
 						Add to Cart
