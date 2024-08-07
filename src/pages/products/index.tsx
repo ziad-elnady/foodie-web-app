@@ -5,13 +5,13 @@ import { Box, Container, Stack, Typography } from '@mui/material';
 import dynamic from 'next/dynamic';
 import { useState, type FormEvent } from 'react';
 import SearchInput from '../_partials/hero/partials/search-input';
-import FiltersSection from './partials/filters';
-import ProductsGridSection from './partials/products/component';
+import FiltersSection from './_partials/filters';
+import ProductsGridSection from './_partials/products/component';
 
 type Props = {};
 
-const FiltersDrawerSection = dynamic(() => import('./partials/filters-drawer'));
-const FiltersDrawerButton = dynamic(() => import('./partials/filters-drawer-button'));
+const FiltersDrawerSection = dynamic(() => import('./_partials/filters-drawer'));
+const FiltersDrawerButton = dynamic(() => import('./_partials/filters-drawer-button'));
 
 const ProductsPage = (props: Props) => {
 	const showFiltersSection = useResponsive('md');

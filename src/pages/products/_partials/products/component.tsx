@@ -1,6 +1,7 @@
 import FoodCard from '@/components/food-card';
 import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
-import { Box, Button, Grid, LinearProgress, Stack, Typography } from '@mui/material';
+import { Box, Button, Grid, LinearProgress, Link, Stack, Typography } from '@mui/material';
+import NextLink from 'next/link';
 
 type Props = {};
 
@@ -21,7 +22,9 @@ const ProductsGridSection = (props: Props) => {
 						.fill('')
 						.map((item, index) => (
 							<Grid item xs={6} md={4} key={index}>
-								<FoodCard />
+								<Link component={NextLink} href="products/product" underline="none" color="inherit">
+									<FoodCard />
+								</Link>
 							</Grid>
 						))}
 				</Grid>
