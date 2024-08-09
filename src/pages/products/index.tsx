@@ -1,4 +1,3 @@
-import Footer from '@/components/footer';
 import { useResponsive } from '@/hooks';
 import { Search } from '@mui/icons-material';
 import { Box, Container, Stack, Typography } from '@mui/material';
@@ -49,7 +48,6 @@ const ProductsPage = (props: Props) => {
 						</Stack>
 					</Stack>
 				</Container>
-				<Footer />
 			</Stack>
 			{showDrawer && !showFiltersSection && <FiltersDrawerSection onClose={setShowDrawer} />}
 		</>

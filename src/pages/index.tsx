@@ -1,4 +1,3 @@
-import Footer from '@/components/footer';
 import FrequentlyAskedQuestionsSection from '@/components/frequently-questions/compontent';
 import { Box } from '@mui/material';
 import Head from 'next/head';
@@ -26,7 +25,6 @@ export default function Home() {
 				<UniqueProductsSection />
 				<OngoingSection />
 				<FrequentlyAskedQuestionsSection />
-				<Footer />
 			</Box>
 		</>
 	);

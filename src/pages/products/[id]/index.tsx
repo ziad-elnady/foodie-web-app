@@ -1,4 +1,3 @@
-import Footer from '@/components/footer';
 import { Container, Stack } from '@mui/material';
 import BreadcrumbPath from './_partials/breadcrumb';
 import ProductDescriptionTab from './_partials/description/component';
@@ -23,7 +22,6 @@ const ProductDetailPage = (props: Props) => {
 			{/* //TODO: ASK SEIF ABOUT THE TAB LOGIC AND ANIMATION */}
 			<ProductDescriptionTab />
 			<SimilarProductsSection />
-			<Footer />
 		</Stack>
 	);
 };

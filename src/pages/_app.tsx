@@ -1,3 +1,4 @@
+import Footer from '@/components/footer';
 import Header from '@/components/header';
 import '@/styles/globals.css';
 import { themeOptions } from '@/theme';
@@ -11,6 +12,7 @@ export default function App({ Component, pageProps }: AppProps) {
 		<ThemeProvider theme={theme}>
 			<Header />
 			<Component {...pageProps} />
+			<Footer />
 		</ThemeProvider>
 	);
 }

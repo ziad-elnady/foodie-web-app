@@ -75,7 +75,7 @@ const ProductDetailsSection = (props: Props) => {
 					<Box width={0.35}>
 						<Counter />
 					</Box>
-					<Button variant="contained" disableElevation sx={{ borderRadius: 999, width: '100%', bgcolor: '#000000', textTransform: 'none' }}>
+					<Button variant="contained" disableElevation sx={{ borderRadius: 999, width: '100%', textTransform: 'none' }}>
 						Add to Cart
 					</Button>
 				</Stack>

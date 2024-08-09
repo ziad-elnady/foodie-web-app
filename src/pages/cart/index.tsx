@@ -1,12 +1,10 @@
 import Counter from '@/components/counter';
-import Footer from '@/components/footer';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import { Box, Button, Container, IconButton, Stack, Typography } from '@mui/material';
-import Paper from '@mui/material/Paper';
-import { styled } from '@mui/material/styles';
+import {} from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
-import TableCell, { tableCellClasses } from '@mui/material/TableCell';
+import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
@@ -16,27 +14,6 @@ import RecommendedProductsSection from './partials/recommended-products/componen
 type Props = {};
 
 const CartPage = (props: Props) => {
-	const StyledTableCell = styled(TableCell)(({ theme }) => ({
-		[`&.${tableCellClasses.head}`]: {
-			backgroundColor: '#A6A6A6',
-			color: theme.palette.common.white
-		},
-		[`&.${tableCellClasses.body}`]: {
-			backgroundColor: '#FFFFFF',
-			fontSize: 14
-		}
-	}));
-
-	const StyledTableRow = styled(TableRow)(({ theme }) => ({
-		'&:nth-of-type(odd)': {
-			backgroundColor: theme.palette.action.hover
-		},
-		// hide last border
-		'&:last-child td, &:last-child th': {
-			border: 0
-		}
-	}));
-
 	function createData(name: string, calories: number, fat: number, carbs: number, protein: number) {
 		return { name, calories, fat, carbs, protein };
 	}
@@ -44,6 +21,11 @@ const CartPage = (props: Props) => {
 	const rows = [
 		createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
 		createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
+		createData('Eclair', 262, 16.0, 24, 6.0),
+		createData('Eclair', 262, 16.0, 24, 6.0),
+		createData('Eclair', 262, 16.0, 24, 6.0),
+		createData('Eclair', 262, 16.0, 24, 6.0),
+		createData('Eclair', 262, 16.0, 24, 6.0),
 		createData('Eclair', 262, 16.0, 24, 6.0),
 		createData('Cupcake', 305, 3.7, 67, 4.3)
 	];
@@ -54,20 +36,20 @@ const CartPage = (props: Props) => {
 				<Stack>
 					<Stack direction={'row'} spacing={3}>
 						<Box width={0.7}>
-							<TableContainer component={Paper} sx={{ borderRadius: 2 }}>
-								<Table sx={{ minWidth: 700 }} aria-label="customized table">
+							<TableContainer sx={{ borderRadius: 2, border: '1px solid', borderColor: 'divider' }}>
+								<Table>
 									<TableHead>
-										<TableRow>
-											<StyledTableCell>Products</StyledTableCell>
-											<StyledTableCell align="right">Price</StyledTableCell>
-											<StyledTableCell align="right">Quantity</StyledTableCell>
-											<StyledTableCell align="right">Total</StyledTableCell>
+										<TableRow sx={{ bgcolor: 'secondary.light', color: 'common.white' }}>
+											<TableCell>Products</TableCell>
+											<TableCell align="right">Price</TableCell>
+											<TableCell align="right">Quantity</TableCell>
+											<TableCell align="right">Total</TableCell>
 										</TableRow>
 									</TableHead>
 									<TableBody>
 										{rows.map((row) => (
-											<StyledTableRow key={row.name}>
-												<TableCell align="right">
+											<TableRow key={row.name} sx={{ '&:last-child td': { border: 0 } }}>
+												<TableCell align="right" sx={{ py: 4 }}>
 													<Stack direction={'row'} alignItems={'center'} spacing={2} useFlexGap>
 														<IconButton size="small">
 															<CloseRoundedIcon fontSize="small" />
@@ -85,53 +67,60 @@ const CartPage = (props: Props) => {
 														<Typography>{row.name}</Typography>
 													</Stack>
 												</TableCell>
-												<StyledTableCell align="right">${row.calories}</StyledTableCell>
-												<StyledTableCell align="right">
-													<Box width={120}>
+												<TableCell align="right">${row.calories}</TableCell>
+												<TableCell align="right">
+													<Box display={'inline-block'}>
 														<Counter />
 													</Box>
-												</StyledTableCell>
-												<StyledTableCell align="right">${row.carbs}</StyledTableCell>
-											</StyledTableRow>
+												</TableCell>
+												<TableCell align="right">${row.carbs}</TableCell>
+											</TableRow>
 										))}
 									</TableBody>
 								</Table>
 							</TableContainer>
 						</Box>
-						<Box width={0.4}>
-							<TableContainer component={Paper} sx={{ borderRadius: 2 }}>
-								<Table sx={{ minWidth: 700 }} aria-label="customized table">
+						<Stack
+							position={'sticky'}
+							top={(theme) => (theme.mixins.toolbar.minHeight as number) + 32}
+							width={0.4}
+							height={'fit-content'}
+							border={1}
+							borderColor={'divider'}
+							borderRadius={2}
+							overflow={'hidden'}>
+							<TableContainer>
+								<Table>
 									<TableHead>
-										<TableRow>
-											<StyledTableCell>Cart Total</StyledTableCell>
-											<StyledTableCell></StyledTableCell>
+										<TableRow sx={{ bgcolor: 'secondary.light', color: 'common.white' }}>
+											<TableCell>Cart Total</TableCell>
+											<TableCell></TableCell>
 										</TableRow>
 									</TableHead>
 									<TableBody>
 										<TableRow>
 											<TableCell>SUBTOTAL</TableCell>
-											<TableCell>$400</TableCell>
+											<TableCell align="right">$400</TableCell>
 										</TableRow>
 										<TableRow>
 											<TableCell>DISCOUNT</TableCell>
-											<TableCell>---</TableCell>
+											<TableCell align="right">---</TableCell>
 										</TableRow>
-										<TableRow>
+										<TableRow sx={{ border: 0 }}>
 											<TableCell>TOTAL</TableCell>
-											<TableCell>$400</TableCell>
+											<TableCell align="right">$400</TableCell>
 										</TableRow>
 									</TableBody>
 								</Table>
 							</TableContainer>
-							<Button variant="contained" disableElevation sx={{ textTransform: 'none', bgcolor: '#000000', borderRadius: 2, width: 1 }}>
+							<Button size="large" variant="contained" disableElevation sx={{ borderRadius: 0, py: 2 }}>
 								Proceed To Checkout
 							</Button>
-						</Box>
+						</Stack>
 					</Stack>
 					<RecommendedProductsSection />
 				</Stack>
 			</Container>
-			<Footer />
 		</Stack>
 	);
 };

@@ -22,7 +22,7 @@ const ProductsGridSection = (props: Props) => {
 						.fill('')
 						.map((item, index) => (
 							<Grid item xs={6} md={4} key={index}>
-								<Link component={NextLink} href="products/product" underline="none" color="inherit">
+								<Link component={NextLink} href={`/products/${index}`} underline="none" color="inherit">
 									<FoodCard />
 								</Link>
 							</Grid>
