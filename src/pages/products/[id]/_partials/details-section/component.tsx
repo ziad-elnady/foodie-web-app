@@ -72,9 +72,7 @@ const ProductDetailsSection = (props: Props) => {
 			</Stack>
 			<Stack my={1} width={1} spacing={2} useFlexGap>
 				<Stack direction={'row'} spacing={2} height={'49px'}>
-					<Box width={0.35}>
-						<Counter />
-					</Box>
+					<Counter />
 					<Button variant="contained" disableElevation sx={{ borderRadius: 999, width: '100%', textTransform: 'none' }}>
 						Add to Cart
 					</Button>

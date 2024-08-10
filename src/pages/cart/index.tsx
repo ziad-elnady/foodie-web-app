@@ -1,4 +1,5 @@
 import Counter from '@/components/counter';
+import { Routes } from '@/enums';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import { Box, Button, Container, IconButton, Stack, Typography } from '@mui/material';
 import {} from '@mui/material/styles';
@@ -9,6 +10,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Image from 'next/image';
+import NextLink from 'next/link';
 import RecommendedProductsSection from './partials/recommended-products/component';
 
 type Props = {};
@@ -24,10 +26,7 @@ const CartPage = (props: Props) => {
 		createData('Eclair', 262, 16.0, 24, 6.0),
 		createData('Eclair', 262, 16.0, 24, 6.0),
 		createData('Eclair', 262, 16.0, 24, 6.0),
-		createData('Eclair', 262, 16.0, 24, 6.0),
-		createData('Eclair', 262, 16.0, 24, 6.0),
-		createData('Eclair', 262, 16.0, 24, 6.0),
-		createData('Cupcake', 305, 3.7, 67, 4.3)
+		createData('Eclair', 262, 16.0, 24, 6.0)
 	];
 
 	return (
@@ -113,7 +112,7 @@ const CartPage = (props: Props) => {
 									</TableBody>
 								</Table>
 							</TableContainer>
-							<Button size="large" variant="contained" disableElevation sx={{ borderRadius: 0, py: 2 }}>
+							<Button href={Routes.CHECKOUT} component={NextLink} size="large" variant="contained" disableElevation sx={{ borderRadius: 0, py: 2 }}>
 								Proceed To Checkout
 							</Button>
 						</Stack>

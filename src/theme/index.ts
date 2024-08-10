@@ -26,5 +26,13 @@ export const themeOptions: ThemeOptions = {
 			textTransform: 'none'
 		}
 	},
-	components: {}
+	components: {
+		MuiButton: {
+			defaultProps: {
+				disableElevation: true,
+				variant: 'contained'
+			}
+		},
+		MuiOutlinedInput: {}
+	}
 };
