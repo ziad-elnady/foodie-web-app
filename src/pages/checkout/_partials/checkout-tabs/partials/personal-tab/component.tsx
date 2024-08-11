@@ -39,17 +39,17 @@ const PersonalTab = ({ setTab, setFormData }: Props) => {
 		<Box component="form" onSubmit={handleSubmit}>
 			<Stack spacing={3} useFlexGap p={4}>
 				<Stack direction={'row'} justifyContent={'space-between'} spacing={2} useFlexGap>
-					<FormInput name="firstName" placeholder="First Name*" />
-					<FormInput name="lastName" placeholder="Last Name*" />
+					<FormInput placeholder="First Name*" />
+					<FormInput placeholder="Last Name*" />
 				</Stack>
 				<Stack direction={'row'} justifyContent={'space-between'} spacing={2} useFlexGap>
-					<FormInput name="email" placeholder="Email Address*" />
-					<FormInput name="phoneNumber" placeholder="Phone Number*" />
+					<FormInput placeholder="Email Address*" />
+					<FormInput placeholder="Phone Number*" />
 				</Stack>
-				<FormInput name="street" placeholder="Street Address*" />
-				<FormInput name="city" placeholder="Town / City*" />
-				<FormInput name="country" placeholder="Country*" />
-				<FormInput name="postalCode" placeholder="Postcode / Zip*" />
+				<FormInput placeholder="Street Address*" />
+				<FormInput placeholder="Town / City*" />
+				<FormInput placeholder="Country*" />
+				<FormInput placeholder="Postcode / Zip*" />
 				<Button type="submit" sx={{ py: 1.65, px: 3, borderRadius: 999, width: 'fit-content' }}>
 					<Typography variant="button" fontWeight={'bold'}>
 						Proceed to Next Step

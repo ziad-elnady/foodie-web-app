@@ -10,7 +10,7 @@ export const links = [
 		]
 	},
 	{
-		id: 1,
+		id: 2,
 		title: 'Products 2',
 		links: [
 			{ id: 1, path: '#', label: 'Lorem ipsum' },
@@ -20,7 +20,7 @@ export const links = [
 		]
 	},
 	{
-		id: 1,
+		id: 3,
 		title: 'Products 3',
 		links: [
 			{ id: 1, path: '#', label: 'Lorem ipsum' },
@@ -30,7 +30,7 @@ export const links = [
 		]
 	},
 	{
-		id: 1,
+		id: 4,
 		title: 'Products 4',
 		links: [
 			{ id: 1, path: '#', label: 'Lorem ipsum' },

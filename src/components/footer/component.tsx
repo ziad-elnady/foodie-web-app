@@ -4,7 +4,7 @@ import { ChevronRight } from '@mui/icons-material';
 import { Box, Container, Divider, Stack, Typography } from '@mui/material';
 import { type FormEvent } from 'react';
 import Logo from '../header/partials/logo';
-import SponsersSection from '../sponsers';
+import SponsorsSection from '../sponsors';
 import BottomNav from './partials/nav/component';
 
 type Props = {};
@@ -21,7 +21,7 @@ const FooterSection = (props: Props) => {
 
 	return (
 		<Stack>
-			<SponsersSection />
+			<SponsorsSection />
 			<Stack sx={{ background: '#3D3D3D', pt: 6 }}>
 				<Container>
 					<Stack alignItems={'center'} spacing={4} useFlexGap>

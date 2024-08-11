@@ -1,12 +1,10 @@
 import Counter from '@/components/counter';
-import { Routes } from '@/enums';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined';
 import ShoppingCartCheckoutRoundedIcon from '@mui/icons-material/ShoppingCartCheckoutRounded';
 import StarRoundedIcon from '@mui/icons-material/StarRounded';
 import { Avatar, Box, Button, Divider, IconButton, List, ListItem, ListItemAvatar, ListItemText, Rating, Stack, Typography } from '@mui/material';
-import NextLink from 'next/link';
 
 type Props = {};
 
@@ -75,7 +73,7 @@ const ProductDetailsSection = (props: Props) => {
 			<Stack my={1} width={1} spacing={2} useFlexGap>
 				<Stack direction={'row'} spacing={2} height={'49px'}>
 					<Counter />
-					<Button href={Routes.AUTH} component={NextLink} variant="contained" disableElevation sx={{ borderRadius: 999, width: '100%', textTransform: 'none' }}>
+					<Button variant="contained" disableElevation sx={{ borderRadius: 999, width: '100%', textTransform: 'none' }}>
 						Add to Cart
 					</Button>
 				</Stack>

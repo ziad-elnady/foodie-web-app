@@ -31,6 +31,12 @@ export const themeOptions: ThemeOptions = {
 			defaultProps: {
 				disableElevation: true,
 				variant: 'contained'
+			},
+			styleOverrides: {
+				root: {
+					borderRadius: 999,
+					paddingBlock: 16
+				}
 			}
 		},
 		MuiOutlinedInput: {}

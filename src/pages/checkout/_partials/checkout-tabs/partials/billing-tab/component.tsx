@@ -29,11 +29,11 @@ const BillingTab = ({ setTab, setFormData }: Props) => {
 	return (
 		<Box component="form" onSubmit={handleSubmit}>
 			<Stack spacing={3} useFlexGap p={4}>
-				<FormInput name="name" placeholder="Name on Card*" />
-				<FormInput name="number" placeholder="Card Number*" />
+				<FormInput placeholder="Name on Card*" />
+				<FormInput placeholder="Card Number*" />
 				<Stack direction={'row'} justifyContent={'space-between'} spacing={2} useFlexGap>
-					<FormInput name="expiryDate" placeholder="Valid Through*" />
-					<FormInput name="cvv" placeholder="CVV*" />
+					<FormInput placeholder="Valid Through*" />
+					<FormInput placeholder="CVV*" />
 				</Stack>
 				<Button type="submit" sx={{ py: 1.65, px: 3, borderRadius: 999, width: 'fit-content' }}>
 					<Typography variant="button" fontWeight={'bold'}>

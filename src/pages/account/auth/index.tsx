@@ -7,12 +7,8 @@ type Props = {};
 const AuthPage = (props: Props) => {
 	const [isRegistering, setIsRegistering] = useState<boolean>(false);
 
-	return (
-		<>
-			{!isRegistering && <LoginTab setIsRegistering={setIsRegistering} />}
-			{isRegistering && <RegisterTab setIsRegistering={setIsRegistering} />}
-		</>
-	);
+	if (isRegistering) return <RegisterTab setIsRegistering={setIsRegistering} />;
+	else return <LoginTab setIsRegistering={setIsRegistering} />;
 };
 
 export default AuthPage;
