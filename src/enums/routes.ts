@@ -6,5 +6,6 @@ export enum Routes {
 	BLOG = '/blog',
 	CART = '/cart',
 	ACCOUNT_AUTH = '/account/auth',
-	ACCOUNT_PROFILE = '/account/profile'
+	ACCOUNT_PROFILE = '/account/profile',
+	AUTH = '/auth'
 }
