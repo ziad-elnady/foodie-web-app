@@ -35,7 +35,7 @@
 	"prettier.vueIndentScriptAndStyle": false,
 	"prettier.embeddedLanguageFormatting": "auto",
 
-	"cSpell.words": ["svgs"],
+	"cSpell.words": ["hookform", "svgs", "tanstack", "zustand"],
 	"cSpell.language": "en,lorem",
 
 	"typescript.tsdk": "node_modules/typescript/bin"
