@@ -1,5 +1,7 @@
 import FormInput from '@/components/input';
-import { Box, Button, Container, Link, Stack, Typography } from '@mui/material';
+import { getInputErrors } from '@/library/errors';
+import { useRegister } from '@/services/auth/register';
+import { Box, Button, ButtonOwnProps, Container, Link, Stack, Typography } from '@mui/material';
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import NextLink from 'next/link';
@@ -10,6 +12,19 @@ type Props = {
 };
 
 const RegisterTab = ({ setIsRegistering }: Props) => {
+	const { form, mutation, handleSubmit } = useRegister();
+
+	const isPending = mutation.isPending;
+	const isSuccess = mutation.isSuccess;
+	const isError = mutation.isError;
+
+	const getButtonState = () => {
+		if (isPending) return { color: 'primary', label: 'Loading...', disabled: true };
+		if (isSuccess) return { color: 'success', label: mutation.data.message, disabled: false };
+		if (isError) return { color: 'error', label: form.formState.errors.root?.message, disabled: false };
+		return { color: 'primary', label: 'Create Account', disabled: false };
+	};
+
 	return (
 		<Container maxWidth="sm">
 			<Stack border={1} borderColor={'divider'} borderRadius={2} p={4} my={5} spacing={4} useFlexGap>
@@ -23,19 +38,19 @@ const RegisterTab = ({ setIsRegistering }: Props) => {
 					</Typography>
 				</Stack>
 
-				<Box component={'form'}>
+				<Box component={'form'} onSubmit={handleSubmit}>
 					<Stack spacing={2} useFlexGap>
-						<FormInput placeholder="michael joe" label="Full Name" />
-						<FormInput placeholder="michael_joe" label="Enter Your Username" />
-						<FormInput secure placeholder="********" label="Password" />
+						<FormInput register={form.register('name')} placeholder="michael joe" label="Full Name" error={getInputErrors(form, 'name')} />
+						<FormInput register={form.register('username')} placeholder="michael_joe" label="Enter Your Username" error={getInputErrors(form, 'username')} />
+						<FormInput register={form.register('password')} secure placeholder="*********" label="Enter Your Password" error={getInputErrors(form, 'password')} />
 						<FormControlLabel
 							required
 							control={<Checkbox />}
 							label="I have read and agreed to the Terms of Service and Privacy Policy"
 							sx={{ '.MuiFormControlLabel-label': { fontSize: 14 } }}
 						/>
-						<Button type="submit" sx={{ mt: 2 }}>
-							Create Account
+						<Button type="submit" color={getButtonState().color as ButtonOwnProps['color']} disabled={getButtonState().disabled} sx={{ mt: 2 }}>
+							{getButtonState().label}
 						</Button>
 					</Stack>
 				</Box>

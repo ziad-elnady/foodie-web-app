@@ -7,8 +7,9 @@ import { AxiosError } from 'axios';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
-export const useLogin = () => {
+export const useRegister = () => {
 	const validationSchema = z.object({
+		name: z.string().min(4, 'Name must be 3 characters or more'),
 		username: z.string().min(4, 'Username must be 4 characters or more'),
 		password: z.string().min(1, 'Password required')
 	});
@@ -20,11 +21,11 @@ export const useLogin = () => {
 	});
 
 	const mutation = useMutation<ResponseObject<{ access: string }>, ResponseObject<{ access: string }>, z.infer<typeof validationSchema>>({
-		mutationKey: ['auth_login'],
+		mutationKey: ['auth_register'],
 		mutationFn: async (payload) => {
 			const api = createAxiosInstance();
 
-			const response = await api.post(Endpoints.AUTH_LOGIN, payload);
+			const response = await api.post(Endpoints.USERS_ROOT, payload);
 			return response.data;
 		}
 	});
