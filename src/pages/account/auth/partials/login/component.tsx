@@ -1,9 +1,9 @@
 import FormInput from '@/components/input';
 import { getInputErrors } from '@/library/errors';
 import { useLogin } from '@/services/auth/login';
-import { Box, Button, Container, Link, Stack, Typography } from '@mui/material';
+import { Box, Button, ButtonOwnProps, Container, Link, Stack, Typography } from '@mui/material';
 import NextLink from 'next/link';
-import { Dispatch, SetStateAction, useEffect } from 'react';
+import { Dispatch, SetStateAction } from 'react';
 
 type Props = {
 	setIsRegistering: Dispatch<SetStateAction<boolean>>;
@@ -14,13 +14,14 @@ const LoginTab = ({ setIsRegistering }: Props) => {
 
 	const isPending = mutation.isPending;
 	const isSuccess = mutation.isSuccess;
-	const data = mutation.data;
+	const isError = mutation.isError;
 
-	useEffect(() => {
-		if (isSuccess) {
-			alert('access_token is now set in local storage');
-		}
-	}, [isSuccess]);
+	const getButtonState = () => {
+		if (isPending) return { color: 'primary', label: 'Loading...', disabled: true };
+		if (isSuccess) return { color: 'success', label: mutation.data.message, disabled: false };
+		if (isError) return { color: 'error', label: form.formState.errors.root?.message, disabled: false };
+		return { color: 'primary', label: 'Login', disabled: false };
+	};
 
 	return (
 		<Container maxWidth="sm">
@@ -39,8 +40,8 @@ const LoginTab = ({ setIsRegistering }: Props) => {
 					<Stack spacing={2} useFlexGap>
 						<FormInput register={form.register('username')} placeholder="michael_joe" label="Enter Your Username" error={getInputErrors(form, 'username')} />
 						<FormInput register={form.register('password')} secure placeholder="*********" label="Enter Your Password" error={getInputErrors(form, 'password')} />
-						<Button type="submit" color={isSuccess ? 'success' : 'primary'} disabled={isPending} sx={{ mt: 2 }}>
-							{isPending ? 'Loading...' : isSuccess && data ? data.message : 'Login'}
+						<Button type="submit" color={getButtonState().color as ButtonOwnProps['color']} disabled={getButtonState().disabled} sx={{ mt: 2 }}>
+							{getButtonState().label}
 						</Button>
 					</Stack>
 				</Box>

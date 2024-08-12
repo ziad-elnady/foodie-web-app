@@ -4,6 +4,7 @@ import { STRONG_PASSWORD } from '@/library/constants';
 import { ResponseObject } from '@/library/types';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation } from '@tanstack/react-query';
+import { AxiosError } from 'axios';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
@@ -24,12 +25,8 @@ export const useLogin = () => {
 		mutationFn: async (payload) => {
 			const api = createAxiosInstance();
 
-			try {
-				const response = await api.post(Endpoints.AUTH_LOGIN, payload);
-				return response.data;
-			} catch (error) {
-				throw "Can't perform login";
-			}
+			const response = await api.post(Endpoints.AUTH_LOGIN, payload);
+			return response.data;
 		}
 	});
 
@@ -40,8 +37,12 @@ export const useLogin = () => {
 			if (response.data && response.data.access) {
 				window.localStorage.setItem('access_token', response.data.access);
 			}
-		} catch (error) {
-			console.error(error);
+		} catch (e) {
+			const error = e as AxiosError<ResponseObject>;
+
+			if (error.response) {
+				form.setError('root', { message: error.response.data.message });
+			}
 		}
 	});
 
